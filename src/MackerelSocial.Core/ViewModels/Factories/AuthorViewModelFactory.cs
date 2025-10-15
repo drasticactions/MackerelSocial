@@ -14,8 +14,8 @@ public class AuthorViewModelFactory : IAuthorViewModelFactory
         this.database = database ?? throw new ArgumentNullException(nameof(database));
     }
 
-    public AuthorViewModel Create(ATIdentifier identifier, string filter = "")
+    public AuthorViewModel Create(ATIdentifier identifier)
     {
-        return new AuthorViewModel(identifier, protocol, database, filter);
+        return new AuthorViewModel(identifier, protocol, database);
     }
 }
