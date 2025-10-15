@@ -4,12 +4,13 @@ using FishyFlip;
 using MackerelSocial.Core.Events;
 using MackerelSocial.Core.Models;
 using MackerelSocial.Core.Services;
+using Microsoft.Extensions.Logging;
 
 namespace MackerelSocial.Core.ViewModels;
 
 public abstract partial class BaseViewModel : ObservableObject, IDisposable
 {
-    public BaseViewModel(ATProtocol protocol, DatabaseService database)
+    public BaseViewModel(ATProtocol protocol, DatabaseService database, ILogger? logger = null)
     {
         if (protocol == null)
         {
@@ -23,6 +24,7 @@ public abstract partial class BaseViewModel : ObservableObject, IDisposable
         
         this.Protocol = protocol;
         this.Database = database;
+        this.Logger = logger;
         StrongReferenceMessenger.Default.Register<OnLoginUserEventArgs>(this, this.OnLoginUser);
     }
 
@@ -32,6 +34,8 @@ public abstract partial class BaseViewModel : ObservableObject, IDisposable
     public ATProtocol Protocol { get; }
 
     public DatabaseService Database { get; }
+
+    public ILogger? Logger { get; init; }
 
     [ObservableProperty]
     private LoginUser? _currentUser;

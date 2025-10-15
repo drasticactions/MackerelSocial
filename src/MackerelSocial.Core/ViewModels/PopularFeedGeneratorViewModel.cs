@@ -7,19 +7,20 @@ using FishyFlip.Models;
 using MackerelSocial.Core;
 using MackerelSocial.Core.Collections;
 using MackerelSocial.Core.Services;
+using Microsoft.Extensions.Logging;
 
 namespace MackerelSocial.Core.ViewModels;
 
 public partial class PopularFeedGeneratorViewModel : BaseViewModel
 {
-    public PopularFeedGeneratorViewModel(ATProtocol protocol, DatabaseService database)
-        : base(protocol, database)
+    public PopularFeedGeneratorViewModel(ATProtocol protocol, DatabaseService database, ILogger? logger = null)
+        : base(protocol, database, logger)
     {
         this.Generators = new PopularFeedGeneratorCollection(protocol);
     }
 
-    public PopularFeedGeneratorViewModel(string query, ATProtocol protocol, DatabaseService database)
-        : base(protocol, database)
+    public PopularFeedGeneratorViewModel(string query, ATProtocol protocol, DatabaseService database, ILogger? logger = null)
+        : base(protocol, database, logger)
     {
         this.Generators = new PopularFeedGeneratorCollection(query, protocol);
     }

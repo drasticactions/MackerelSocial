@@ -3,6 +3,7 @@ using FishyFlip.Models;
 using MackerelSocial.Core.Collections;
 using MackerelSocial.Core.Events;
 using MackerelSocial.Core.Services;
+using Microsoft.Extensions.Logging;
 
 namespace MackerelSocial.Core.ViewModels;
 
@@ -10,8 +11,8 @@ public partial class AuthorViewModel : BaseViewModel
 {
     private ATIdentifier atIdentifier;
 
-    public AuthorViewModel(ATIdentifier identifier, ATProtocol protocol, DatabaseService database)
-        : base(protocol, database)
+    public AuthorViewModel(ATIdentifier identifier, ATProtocol protocol, DatabaseService database, ILogger? logger = null)
+        : base(protocol, database, logger)
     {
         this.atIdentifier = identifier;
         this.MainAuthorFeed = new AuthorViewCollection(protocol, identifier, AuthorFilterConstants.PostsAndAuthorThreads, true);

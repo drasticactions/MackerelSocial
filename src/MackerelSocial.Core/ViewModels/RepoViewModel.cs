@@ -11,6 +11,7 @@ using FishyFlip.Tools;
 using MackerelSocial.Core;
 using MackerelSocial.Core.Events;
 using MackerelSocial.Core.Services;
+using Microsoft.Extensions.Logging;
 
 namespace MackerelSocial.Core.ViewModels;
 
@@ -19,8 +20,8 @@ namespace MackerelSocial.Core.ViewModels;
 /// </summary>
 public partial class RepoViewModel : BaseViewModel
 {
-    public RepoViewModel(ATProtocol protocol, DatabaseService database)
-        : base(protocol, database)
+    public RepoViewModel(ATProtocol protocol, DatabaseService database, ILogger? logger = null)
+        : base(protocol, database, logger)
     {
     }
 

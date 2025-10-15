@@ -6,6 +6,7 @@ using FishyFlip;
 using FishyFlip.Models;
 using MackerelSocial.Core.Events;
 using MackerelSocial.Core.Services;
+using Microsoft.Extensions.Logging;
 
 namespace MackerelSocial.Core.ViewModels;
 
@@ -13,8 +14,8 @@ public partial class LoginViewModel : BaseViewModel
 {
     private static readonly Regex EmailRegex = new(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", RegexOptions.Compiled);
 
-    public LoginViewModel(ATProtocol protocol, DatabaseService database)
-        : base(protocol, database)
+    public LoginViewModel(ATProtocol protocol, DatabaseService database, ILogger? logger = null)
+        : base(protocol, database, logger)
     {
     }
 
