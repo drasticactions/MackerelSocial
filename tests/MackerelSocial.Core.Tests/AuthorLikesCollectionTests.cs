@@ -11,17 +11,19 @@ namespace MackerelSocial.Core.Tests;
 /// <summary>
 /// Tests for AuthorLikesCollection.
 /// </summary>
+[Collection("Auth")]
 public class AuthorLikesCollectionTests
 {
     private readonly ATProtocol protocol;
 
-    public AuthorLikesCollectionTests()
+    /// <summary>
+    /// Initializes a new instance of the AuthorLikesCollectionTests class using the specified authenticated protocol
+    /// fixture.
+    /// </summary>
+    /// <param name="fixture">The fixture that provides an authenticated protocol instance for use in test cases. Cannot be null.</param>
+    public AuthorLikesCollectionTests(AuthenticatedProtocolFixture fixture)
     {
-        var builder = new ATProtocolBuilder();
-        string handle = Environment.GetEnvironmentVariable("BLUESKY_TEST_HANDLE") ?? throw new ArgumentNullException();
-        string password = Environment.GetEnvironmentVariable("BLUESKY_TEST_PASSWORD") ?? throw new ArgumentNullException();
-        this.protocol = builder.Build();
-        this.protocol.AuthenticateWithPasswordResultAsync(handle, password).Wait();
+        this.protocol = fixture.Protocol;
     }
 
     [Fact]

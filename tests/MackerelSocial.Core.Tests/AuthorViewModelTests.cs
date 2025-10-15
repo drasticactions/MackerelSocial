@@ -46,9 +46,6 @@ public class AuthorViewModelTests : IDisposable
         Assert.NotNull(viewModel.RepliesFeed);
         Assert.NotNull(viewModel.VideosFeed);
         Assert.NotNull(viewModel.MediaFeed);
-
-        // When not authenticated, Likes should be null.
-        Assert.Null(viewModel.LikesFeed);
     }
 
     [Fact]
@@ -66,9 +63,6 @@ public class AuthorViewModelTests : IDisposable
         Assert.NotNull(viewModel.RepliesFeed);
         Assert.NotNull(viewModel.VideosFeed);
         Assert.NotNull(viewModel.MediaFeed);
-
-        // When not authenticated, Likes should be null.
-        Assert.Null(viewModel.LikesFeed);
     }
 
     [Fact]

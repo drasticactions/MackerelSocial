@@ -32,7 +32,7 @@ public abstract partial class BaseViewModel : ObservableObject, IDisposable
 
     public DatabaseService Database { get; }
 
-    private void OnLoginUser(object recipient, OnLoginUserEventArgs args)
+    protected virtual void OnLoginUser(object recipient, OnLoginUserEventArgs args)
     {
     }
 
