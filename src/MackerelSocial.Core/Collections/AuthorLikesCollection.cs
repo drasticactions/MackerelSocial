@@ -9,21 +9,17 @@ namespace MackerelSocial.Core.Collections;
 /// </summary>
 public class AuthorLikesCollection : FeedViewPostCollection
 {
+    private ATIdentifier atIdentifier;
+
     /// <summary>
     /// Initializes a new instance of the <see cref="AuthorLikesCollection"/> class.
     /// </summary>
     /// <param name="atProtocol">The ATProtocol.</param>
-    /// <param name="identifier">The ATIdentifier.</param>
-    public AuthorLikesCollection(ATProtocol atp, ATIdentifier identifier)
+    public AuthorLikesCollection(ATProtocol atp)
         : base(atp)
     {
-        this.ATIdentifier = identifier;
+        this.atIdentifier = atp.Session?.Did ?? throw new ArgumentNullException("Must be authenticated with a session to use this collection");
     }
-
-    /// <summary>
-    /// Gets the ATIdentifier.
-    /// </summary>
-    public ATIdentifier ATIdentifier { get; }
 
     /// <inheritdoc/>
     public override async Task<(IList<FeedViewPost> Posts, string Cursor)> GetRecordsAsync(int? limit = null, CancellationToken? cancellationToken = null)
@@ -35,7 +31,7 @@ public class AuthorLikesCollection : FeedViewPostCollection
     /// <inheritdoc/>
     internal override async Task<(IList<FeedViewPost> Posts, string Cursor)> GetPostViewItemsAsync(int limit = 50, CancellationToken? token = default)
     {
-        var (result, error) = await this.ATProtocol.Feed.GetActorLikesAsync(this.ATIdentifier, limit, this.Cursor, token ?? System.Threading.CancellationToken.None);
+        var (result, error) = await this.ATProtocol.Feed.GetActorLikesAsync(this.atIdentifier, limit, this.Cursor, token ?? System.Threading.CancellationToken.None);
 
         this.HandleATError(error);
         if (result == null || result.Feed == null)

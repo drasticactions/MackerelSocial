@@ -14,7 +14,10 @@ public partial class AuthorViewModel : BaseViewModel
         this.RepliesFeed = new AuthorViewCollection(protocol, identifier, AuthorFilterConstants.PostsWithReplies, false);
         this.VideosFeed = new AuthorViewCollection(protocol, identifier, AuthorFilterConstants.PostsWithVideo, false);
         this.MediaFeed = new AuthorViewCollection(protocol, identifier, AuthorFilterConstants.PostsWithMedia, false);
-        this.LikesFeed = new AuthorLikesCollection(protocol, identifier);
+        if (protocol.Session != null)
+        {
+            this.LikesFeed = new AuthorLikesCollection(protocol);
+        }
     }
     
     public AuthorViewCollection MainAuthorFeed { get; }
@@ -23,7 +26,7 @@ public partial class AuthorViewModel : BaseViewModel
 
     public AuthorViewCollection VideosFeed { get; }
 
-    public AuthorLikesCollection LikesFeed { get; set; }
+    public AuthorLikesCollection? LikesFeed { get; }
 
     public AuthorViewCollection MediaFeed { get; }
 }
