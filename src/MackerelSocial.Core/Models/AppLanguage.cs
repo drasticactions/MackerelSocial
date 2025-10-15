@@ -1,4 +1,4 @@
-namespace MackerelSocial.Models;
+namespace MackerelSocial.Core.Models;
 
 /// <summary>
 /// App Language.

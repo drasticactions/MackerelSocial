@@ -1,7 +1,7 @@
 using FishyFlip;
-using MackerelSocial.Services;
+using MackerelSocial.Core.Services;
 
-namespace MackerelSocial.ViewModels.Factories;
+namespace MackerelSocial.Core.ViewModels.Factories;
 
 public class PopularFeedGeneratorViewModelFactory : IPopularFeedGeneratorViewModelFactory
 {

@@ -10,14 +10,12 @@ public static class ServiceCollectionExtensions
         var atProtocolBuilder = new FishyFlip.ATProtocolBuilder();
         var atProtocol = atProtocolBuilder.Build();
         services.AddSingleton(atProtocol);
-        services.AddTransient<ViewModels.LoginViewModel>();
-        services.AddTransient<ViewModels.LaunchViewModel>();
-        services.AddTransient<ViewModels.ThreadViewPostViewModel>();
-        services.AddTransient<ViewModels.AuthorViewModel>();
-        services.AddTransient<ViewModels.PopularFeedGeneratorViewModel>();
-        services.AddSingleton<MackerelSocial.ViewModels.Factories.IAuthorViewModelFactory, MackerelSocial.ViewModels.Factories.AuthorViewModelFactory>();
-        services.AddSingleton<MackerelSocial.ViewModels.Factories.IPopularFeedGeneratorViewModelFactory, MackerelSocial.ViewModels.Factories.PopularFeedGeneratorViewModelFactory>();
-        services.AddSingleton<MackerelSocial.ViewModels.Factories.IThreadViewPostViewModelFactory, MackerelSocial.ViewModels.Factories.ThreadViewPostViewModelFactory>();
+        services.AddTransient<Core.ViewModels.ThreadViewPostViewModel>();
+        services.AddTransient<Core.ViewModels.AuthorViewModel>();
+        services.AddTransient<Core.ViewModels.PopularFeedGeneratorViewModel>();
+        services.AddSingleton<MackerelSocial.Core.ViewModels.Factories.IAuthorViewModelFactory, MackerelSocial.Core.ViewModels.Factories.AuthorViewModelFactory>();
+        services.AddSingleton<MackerelSocial.Core.ViewModels.Factories.IPopularFeedGeneratorViewModelFactory, MackerelSocial.Core.ViewModels.Factories.PopularFeedGeneratorViewModelFactory>();
+        services.AddSingleton<MackerelSocial.Core.ViewModels.Factories.IThreadViewPostViewModelFactory, MackerelSocial.Core.ViewModels.Factories.ThreadViewPostViewModelFactory>();
         return services;
     }
 }

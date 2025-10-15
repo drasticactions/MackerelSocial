@@ -1,4 +1,4 @@
-namespace MackerelSocial.Models;
+namespace MackerelSocial.Core.Models;
 
 public enum LoginType
 {

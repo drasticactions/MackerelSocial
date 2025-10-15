@@ -1,6 +1,6 @@
 using SQLite;
 
-namespace MackerelSocial.Models;
+namespace MackerelSocial.Core.Models;
 
 public class AppSettings
 {

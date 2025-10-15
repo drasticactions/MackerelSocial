@@ -1,7 +1,7 @@
 using FishyFlip;
 using FishyFlip.Models;
 
-namespace MackerelSocial.ViewModels.Factories;
+namespace MackerelSocial.Core.ViewModels.Factories;
 
 public interface IAuthorViewModelFactory
 {

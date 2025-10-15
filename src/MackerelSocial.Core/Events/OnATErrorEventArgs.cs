@@ -1,6 +1,6 @@
 using FishyFlip.Models;
 
-namespace MackerelSocial.Events;
+namespace MackerelSocial.Core.Events;
 
 public class OnATErrorEventArgs : EventArgs
 {

@@ -2,9 +2,9 @@
 // Copyright (c) Drastic Actions. All rights reserved.
 // </copyright>
 
-using MackerelSocial.Models;
+using MackerelSocial.Core.Models;
 
-namespace MackerelSocial.Events;
+namespace MackerelSocial.Core.Events;
 
 public enum ShowViewModel
 {

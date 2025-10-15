@@ -6,10 +6,11 @@ using CommunityToolkit.Mvvm.Messaging;
 using FishyFlip;
 using FishyFlip.Models;
 using MackerelSocial.Core;
-using MackerelSocial.Events;
-using MackerelSocial.Services;
+using MackerelSocial.Core.Collections;
+using MackerelSocial.Core.Events;
+using MackerelSocial.Core.Services;
 
-namespace MackerelSocial.ViewModels;
+namespace MackerelSocial.Core.ViewModels;
 
 public partial class AuthorViewModel : BaseViewModel
 {

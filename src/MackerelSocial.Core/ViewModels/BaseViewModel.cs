@@ -1,10 +1,10 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Messaging;
 using FishyFlip;
-using MackerelSocial.Events;
-using MackerelSocial.Services;
+using MackerelSocial.Core.Events;
+using MackerelSocial.Core.Services;
 
-namespace MackerelSocial.ViewModels;
+namespace MackerelSocial.Core.ViewModels;
 
 public abstract partial class BaseViewModel : ObservableObject, IDisposable
 {

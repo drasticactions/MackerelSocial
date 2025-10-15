@@ -1,7 +1,7 @@
 using FishyFlip.Lexicon.App.Bsky.Feed;
 using FishyFlip.Models;
 
-namespace MackerelSocial.ViewModels.Factories;
+namespace MackerelSocial.Core.ViewModels.Factories;
 
 public interface IThreadViewPostViewModelFactory
 {

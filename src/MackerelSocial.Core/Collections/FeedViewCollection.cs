@@ -1,4 +1,4 @@
-// <copyright file="AuthorViewCollection.cs" company="Drastic Actions">
+// <copyright file="FeedViewCollection.cs" company="Drastic Actions">
 // Copyright (c) Drastic Actions. All rights reserved.
 // </copyright>
 
@@ -6,42 +6,28 @@ using FishyFlip;
 using FishyFlip.Lexicon.App.Bsky.Feed;
 using FishyFlip.Models;
 
-namespace MackerelSocial.Core;
+namespace MackerelSocial.Core.Collections;
 
 /// <summary>
-/// Author View Collection.
+/// Feed View Collection.
 /// </summary>
-public class AuthorViewCollection : FeedViewPostCollection
+public class FeedViewCollection : FeedViewPostCollection
 {
     /// <summary>
-    /// Initializes a new instance of the <see cref="AuthorViewCollection"/> class.
+    /// Initializes a new instance of the <see cref="FeedViewCollection"/> class.
     /// </summary>
     /// <param name="atProtocol">The ATProtocol.</param>
     /// <param name="identifier">The ATIdentifier.</param>
-    /// <param name="filter">The Filter.</param>
-    /// <param name="includePins">Include pins.</param>
-    public AuthorViewCollection(ATProtocol atp, ATIdentifier identifier, string filter = "", bool includePins = true)
+    public FeedViewCollection(ATProtocol atp, ATUri feed)
         : base(atp)
     {
-        this.ATIdentifier = identifier;
-        this.Filter = filter;
-        this.IncludePins = includePins;
+        this.FeedUri = feed;
     }
 
     /// <summary>
-    /// Gets the ATIdentifier.
+    /// Gets the ATUri.
     /// </summary>
-    public ATIdentifier ATIdentifier { get; }
-
-    /// <summary>
-    /// Gets the filter.
-    /// </summary>
-    public string Filter { get; }
-
-    /// <summary>
-    /// Gets a value indicating whether to include pins.
-    /// </summary>
-    public bool IncludePins { get; }
+    public ATUri FeedUri { get; }
 
     /// <inheritdoc/>
     public override async Task<(IList<FeedViewPost> Posts, string Cursor)> GetRecordsAsync(int? limit = null, CancellationToken? cancellationToken = null)
@@ -53,7 +39,7 @@ public class AuthorViewCollection : FeedViewPostCollection
     /// <inheritdoc/>
     internal override async Task<(IList<FeedViewPost> Posts, string Cursor)> GetPostViewItemsAsync(int limit = 50, CancellationToken? token = default)
     {
-        var (result, error) = await this.ATProtocol.Feed.GetAuthorFeedAsync(this.ATIdentifier, limit, this.Cursor, this.Filter, this.IncludePins, token ?? System.Threading.CancellationToken.None);
+        var (result, error) = await this.ATProtocol.Feed.GetFeedAsync(this.FeedUri, limit, this.Cursor, token ?? System.Threading.CancellationToken.None);
 
         this.HandleATError(error);
         if (result == null || result.Feed == null)

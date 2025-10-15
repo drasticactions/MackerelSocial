@@ -1,9 +1,9 @@
 using CommunityToolkit.Mvvm.Messaging;
-using MackerelSocial.Events;
-using MackerelSocial.Models;
+using MackerelSocial.Core.Events;
+using MackerelSocial.Core.Models;
 using SQLite;
 
-namespace MackerelSocial.Services;
+namespace MackerelSocial.Core.Services;
 
 /// <summary>
 /// Database Service.

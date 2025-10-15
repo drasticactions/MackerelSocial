@@ -1,4 +1,4 @@
-namespace MackerelSocial.Events;
+namespace MackerelSocial.Core.Events;
 
 public class OnExceptionEventArgs : EventArgs
 {

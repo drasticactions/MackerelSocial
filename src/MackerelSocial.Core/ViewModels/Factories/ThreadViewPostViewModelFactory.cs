@@ -1,9 +1,9 @@
 using FishyFlip;
 using FishyFlip.Lexicon.App.Bsky.Feed;
 using FishyFlip.Models;
-using MackerelSocial.Services;
+using MackerelSocial.Core.Services;
 
-namespace MackerelSocial.ViewModels.Factories;
+namespace MackerelSocial.Core.ViewModels.Factories;
 
 public class ThreadViewPostViewModelFactory : IThreadViewPostViewModelFactory
 {

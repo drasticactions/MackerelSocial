@@ -9,10 +9,10 @@ using FishyFlip.Lexicon;
 using FishyFlip.Models;
 using FishyFlip.Tools;
 using MackerelSocial.Core;
-using MackerelSocial.Events;
-using MackerelSocial.Services;
+using MackerelSocial.Core.Events;
+using MackerelSocial.Core.Services;
 
-namespace MackerelSocial.ViewModels;
+namespace MackerelSocial.Core.ViewModels;
 
 /// <summary>
 /// View model for repository-related data and actions.

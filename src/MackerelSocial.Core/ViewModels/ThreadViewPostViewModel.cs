@@ -5,9 +5,9 @@ using CommunityToolkit.Mvvm.Input;
 using FishyFlip;
 using FishyFlip.Lexicon.App.Bsky.Feed;
 using FishyFlip.Models;
-using MackerelSocial.Services;
+using MackerelSocial.Core.Services;
 
-namespace MackerelSocial.ViewModels;
+namespace MackerelSocial.Core.ViewModels;
 
 public partial class ThreadViewPostViewModel : BaseViewModel
 {
