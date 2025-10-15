@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="external/FishyFlip/src/FishyFlip/FishyFlip.csproj" />
+  <Project Path="src/MackerelSocial.Core/MackerelSocial.Core.csproj" />
+  <Folder Name="/tests/">
+    <Project Path="tests/MackerelSocial.Core.Tests/MackerelSocial.Core.Tests.csproj" />
+  </Folder>
+</Solution>

@@ -1,0 +1,7 @@
+<Project>
+    <PropertyGroup>
+        <LangVersion>preview</LangVersion>
+        <ValidateXcodeVersion>false</ValidateXcodeVersion>
+        <UseInterpreter>true</UseInterpreter>
+    </PropertyGroup>
+</Project>
