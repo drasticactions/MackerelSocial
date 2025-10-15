@@ -2,6 +2,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Messaging;
 using FishyFlip;
 using MackerelSocial.Core.Events;
+using MackerelSocial.Core.Models;
 using MackerelSocial.Core.Services;
 
 namespace MackerelSocial.Core.ViewModels;
@@ -32,8 +33,14 @@ public abstract partial class BaseViewModel : ObservableObject, IDisposable
 
     public DatabaseService Database { get; }
 
+    [ObservableProperty]
+    private LoginUser? _currentUser;
+
+    public bool IsAuthenticated => this.CurrentUser is not null;
+
     protected virtual void OnLoginUser(object recipient, OnLoginUserEventArgs args)
     {
+        this.CurrentUser = args.LoginUser;
     }
 
     /// <summary>
