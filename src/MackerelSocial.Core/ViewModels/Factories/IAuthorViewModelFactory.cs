@@ -5,5 +5,5 @@ namespace MackerelSocial.Core.ViewModels.Factories;
 
 public interface IAuthorViewModelFactory
 {
-    AuthorViewModel Create(ATIdentifier identifier);
+    AuthorViewModel Create(ATIdentifier identifier, Models.LoginUser? currentUser = default);
 }

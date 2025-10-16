@@ -18,13 +18,13 @@ public class PopularFeedGeneratorViewModelFactory : IPopularFeedGeneratorViewMod
         this.logger = logger;
     }
 
-    public PopularFeedGeneratorViewModel Create()
+    public PopularFeedGeneratorViewModel Create(Models.LoginUser? currentUser = default)
     {
-        return new PopularFeedGeneratorViewModel(protocol, database, logger);
+        return new PopularFeedGeneratorViewModel(protocol, database, currentUser, logger);
     }
 
-    public PopularFeedGeneratorViewModel Create(string query)
+    public PopularFeedGeneratorViewModel Create(string query, Models.LoginUser? currentUser = default)
     {
-        return new PopularFeedGeneratorViewModel(query, protocol, database, logger);
+        return new PopularFeedGeneratorViewModel(query, protocol, database, currentUser, logger);
     }
 }

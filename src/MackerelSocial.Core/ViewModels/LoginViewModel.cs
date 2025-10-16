@@ -14,8 +14,8 @@ public partial class LoginViewModel : BaseViewModel
 {
     private static readonly Regex EmailRegex = new(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", RegexOptions.Compiled);
 
-    public LoginViewModel(ATProtocol protocol, DatabaseService database, ILogger? logger = null)
-        : base(protocol, database, logger)
+    public LoginViewModel(ATProtocol protocol, DatabaseService database, Models.LoginUser? currentUser = default, ILogger? logger = null)
+        : base(protocol, database, currentUser, logger)
     {
     }
 

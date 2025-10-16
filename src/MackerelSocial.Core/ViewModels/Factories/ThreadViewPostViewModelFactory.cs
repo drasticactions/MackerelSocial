@@ -19,13 +19,13 @@ public class ThreadViewPostViewModelFactory : IThreadViewPostViewModelFactory
         this.logger = logger;
     }
 
-    public ThreadViewPostViewModel Create(ThreadViewPost post)
+    public ThreadViewPostViewModel Create(ThreadViewPost post, Models.LoginUser? currentUser = default)
     {
-        return new ThreadViewPostViewModel(post, protocol, database, logger);
+        return new ThreadViewPostViewModel(post, protocol, database, currentUser, logger);
     }
 
-    public ThreadViewPostViewModel Create(ATUri uri)
+    public ThreadViewPostViewModel Create(ATUri uri, Models.LoginUser? currentUser = default)
     {
-        return new ThreadViewPostViewModel(uri, protocol, database, logger);
+        return new ThreadViewPostViewModel(uri, protocol, database, currentUser, logger);
     }
 }

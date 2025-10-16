@@ -11,8 +11,8 @@ public partial class AuthorViewModel : BaseViewModel
 {
     private ATIdentifier atIdentifier;
 
-    public AuthorViewModel(ATIdentifier identifier, ATProtocol protocol, DatabaseService database, ILogger? logger = null)
-        : base(protocol, database, logger)
+    public AuthorViewModel(ATIdentifier identifier, ATProtocol protocol, DatabaseService database, Models.LoginUser? currentUser = default, ILogger? logger = null)
+        : base(protocol, database, currentUser, logger)
     {
         this.atIdentifier = identifier;
         this.MainAuthorFeed = new AuthorViewCollection(protocol, identifier, AuthorFilterConstants.PostsAndAuthorThreads, true);

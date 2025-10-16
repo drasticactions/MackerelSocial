@@ -13,15 +13,15 @@ namespace MackerelSocial.Core.ViewModels;
 public partial class ThreadViewPostViewModel : BaseViewModel
 {
     private ATUri _uri;
-    public ThreadViewPostViewModel(ThreadViewPost post, ATProtocol protocol, DatabaseService database, ILogger? logger = null)
-        : base(protocol, database, logger)
+    public ThreadViewPostViewModel(ThreadViewPost post, ATProtocol protocol, DatabaseService database, Models.LoginUser? currentUser = default, ILogger? logger = null)
+        : base(protocol, database, currentUser, logger)
     {
         this.Post = post;
         this._uri = post.Post.Uri;
     }
 
-    public ThreadViewPostViewModel(ATUri uri, ATProtocol protocol, DatabaseService database, ILogger? logger = null)
-        : base(protocol, database, logger)
+    public ThreadViewPostViewModel(ATUri uri, ATProtocol protocol, DatabaseService database, Models.LoginUser? currentUser = default, ILogger? logger = null)
+        : base(protocol, database, currentUser, logger)
     {
         this._uri = uri;
     }

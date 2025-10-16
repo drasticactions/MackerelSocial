@@ -17,8 +17,8 @@ public class AuthorViewModelFactory : IAuthorViewModelFactory
         this.logger = logger;
     }
 
-    public AuthorViewModel Create(ATIdentifier identifier)
+    public AuthorViewModel Create(ATIdentifier identifier, Models.LoginUser? currentUser = default)
     {
-        return new AuthorViewModel(identifier, protocol, database, logger);
+        return new AuthorViewModel(identifier, protocol, database, currentUser, logger);
     }
 }

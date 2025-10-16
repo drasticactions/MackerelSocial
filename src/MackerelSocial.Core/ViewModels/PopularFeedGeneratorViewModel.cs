@@ -13,14 +13,14 @@ namespace MackerelSocial.Core.ViewModels;
 
 public partial class PopularFeedGeneratorViewModel : BaseViewModel
 {
-    public PopularFeedGeneratorViewModel(ATProtocol protocol, DatabaseService database, ILogger? logger = null)
-        : base(protocol, database, logger)
+    public PopularFeedGeneratorViewModel(ATProtocol protocol, DatabaseService database, Models.LoginUser? currentUser = default, ILogger? logger = null)
+        : base(protocol, database, currentUser, logger)
     {
         this.Generators = new PopularFeedGeneratorCollection(protocol);
     }
 
-    public PopularFeedGeneratorViewModel(string query, ATProtocol protocol, DatabaseService database, ILogger? logger = null)
-        : base(protocol, database, logger)
+    public PopularFeedGeneratorViewModel(string query, ATProtocol protocol, DatabaseService database, Models.LoginUser? currentUser = default, ILogger? logger = null)
+        : base(protocol, database, currentUser, logger)
     {
         this.Generators = new PopularFeedGeneratorCollection(query, protocol);
     }

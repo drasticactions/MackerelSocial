@@ -10,7 +10,7 @@ namespace MackerelSocial.Core.ViewModels;
 
 public abstract partial class BaseViewModel : ObservableObject, IDisposable
 {
-    public BaseViewModel(ATProtocol protocol, DatabaseService database, ILogger? logger = null)
+    public BaseViewModel(ATProtocol protocol, DatabaseService database, LoginUser? currentUser = default, ILogger? logger = null)
     {
         if (protocol == null)
         {
@@ -25,6 +25,7 @@ public abstract partial class BaseViewModel : ObservableObject, IDisposable
         this.Protocol = protocol;
         this.Database = database;
         this.Logger = logger;
+        this.CurrentUser = currentUser;
         StrongReferenceMessenger.Default.Register<OnLoginUserEventArgs>(this, this.OnLoginUser);
     }
 

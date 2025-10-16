@@ -20,8 +20,8 @@ namespace MackerelSocial.Core.ViewModels;
 /// </summary>
 public partial class RepoViewModel : BaseViewModel
 {
-    public RepoViewModel(ATProtocol protocol, DatabaseService database, ILogger? logger = null)
-        : base(protocol, database, logger)
+    public RepoViewModel(ATProtocol protocol, DatabaseService database, Models.LoginUser? currentUser = default, ILogger? logger = null)
+        : base(protocol, database, currentUser, logger)
     {
     }
 

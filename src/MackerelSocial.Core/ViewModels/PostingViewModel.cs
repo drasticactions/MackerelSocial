@@ -29,8 +29,8 @@ public partial class PostingViewModel : BaseViewModel
 
     private FileContentTypeDetector fileContentTypeDetector;
 
-    public PostingViewModel(ATProtocol protocol, DatabaseService database, ILogger? logger = null)
-        : base(protocol, database, logger)
+    public PostingViewModel(ATProtocol protocol, DatabaseService database, Models.LoginUser? currentUser = default, ILogger? logger = null)
+        : base(protocol, database, currentUser, logger)
     {
         fileContentTypeDetector = new FileContentTypeDetector(this.Logger);
     }
