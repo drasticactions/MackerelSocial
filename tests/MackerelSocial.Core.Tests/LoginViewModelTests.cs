@@ -281,7 +281,7 @@ public class LoginViewModelTests : IDisposable
         // Act
         var loginTask = Task.Run(async () =>
         {
-            await Task.Delay(50); // Small delay to ensure we check during execution
+            await Task.Delay(500); // Small delay to ensure we check during execution
             wasLoggingInDuringExecution = viewModel.IsLoggingInWithPassword;
         });
 
